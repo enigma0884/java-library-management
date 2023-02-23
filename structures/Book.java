@@ -4,7 +4,7 @@ public class Book {
   public final String name;
   private User issuedTo = null;
 
-  Book(String name) {
+  public Book(String name) {
     this.name = name;
   }
 
