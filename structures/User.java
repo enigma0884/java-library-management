@@ -2,29 +2,29 @@ package structures;
 
 import java.util.ArrayList;
 
-import core.AccessLevel;
-
 public class User {
-    public final String username;
-    public final String password;
-    public final ArrayList<Book> books = new ArrayList<Book>();
-    public final AccessLevel level;
+  public final String username;
+  public final String password;
+  public final ArrayList<Book> books = new ArrayList<Book>();
 
-    User(String username, String password, AccessLevel level) {
-        this.username = username;
-        this.password = password;
-        this.level = level;
-    }
+  User(String username, String password) {
+    this.username = username;
+    this.password = password;
+  }
 
-    public void addBook(Book book) {
-        if (this.books.contains(book))
-            return;
-        this.books.add(book);
-    }
+  public void addBook(Book book) {
+    this.books.add(book);
+    System.out.println(book.name + " added to your list of borrowed books");
+  }
 
-    public void removeBook(Book book) {
-        if (!this.books.contains(book))
-            return;
-        this.books.remove(book);
-    }
+  public void removeBook(Book book) {
+    this.books.remove(book);
+    System.out.println(book.name + " removed from your list of borrowed books");
+  }
+
+  public void listBooks() {
+    books.forEach(b -> {
+      System.out.println("- " + b.name);
+    });
+  }
 }
